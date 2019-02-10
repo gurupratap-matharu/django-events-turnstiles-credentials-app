@@ -1,0 +1,49 @@
+{% extends "eventos/base.html" %}
+
+{% block content %}
+<h2>{{ molinete.identity }} | {{ molinete.event }}</h2>
+
+<!-- <div style="overflow-x:auto;">
+<table>
+    <tr>
+        <th>{{ molinete.id }}</th>
+        <th>Identity</th>
+        <th>Event</th>
+
+    </tr>
+    <tr>
+        <td>{{ molinete.id }}</td>
+        <td>{{ molinete.identity }}</td>
+        <td>{{ molinete.event }}</td>
+
+    </tr>
+</table> -->
+</div>
+{% if molinete.credential_set.all %}
+<br>
+<h2>Registered Credentials</h2>
+<br>
+<div style="overflow-x:auto;">
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Identity</th>
+        <th>Molinete</th>
+        <th>Read Status</th>
+    </tr>
+    {% for credential in molinete.credential_set.all %}
+    <tr>
+        <td>{{ credential.id }}</td>
+        <td>{{ credential.identity }}</td>
+        <td>{{ credential.molinete }}</td>
+        <td>{{ credential.read }}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% else %}
+<br>
+<p><strong>No Credentials are registered for this Molinete.</strong></p>
+{% endif %}
+{% endblock %}

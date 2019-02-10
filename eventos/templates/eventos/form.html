@@ -1,0 +1,21 @@
+{% extends "eventos/base.html" %}
+
+{% block content %}
+<div class="registerform">
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input type="submit" value="Register">
+</form>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <h1{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h1>
+    {% endfor %}
+</ul>
+{% endif %}
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,18 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'eventos/style.css' %}">
+<br>
+<h1>Welcome to the Global Events App</h1>
+
+<h2><a href="{% url 'eventos:index' %}">Home</a>&nbsp&nbsp&nbsp
+<a href="{% url 'eventos:list' %}">List All Events</a>&nbsp&nbsp&nbsp
+<br><br></h2>
+<h2><a href="{% url 'eventos:register-event' %}">Register a new Event</a></h2>
+<h2><a href="{% url 'eventos:register-molinete' %}">Register a new Molinete</a></h2>
+<h2><a href="{% url 'eventos:register-credential' %}">Register a new Credential</a></h2>
+<h2><a href="{% url 'eventos:read-credential' %}">Read a Credential</a></h2>
+
+<br>
+
+{% block content %}
+{% endblock %}

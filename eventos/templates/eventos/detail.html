@@ -1,0 +1,33 @@
+{% extends "eventos/base.html" %}
+
+{% block content %}
+<h2>{{ event.title }} | {{ event.code }}</h2>
+
+{% if event.molinete_set.all %}
+<br>
+<h2>Molinetes</h2>
+<br>
+<div style="overflow-x:auto;">
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Identity</th>
+        <th>Event</th>
+        <th>Credentials Read</th>
+    </tr>
+    {% for molinete in event.molinete_set.all %}
+    <tr>
+        <td><a href="{% url 'eventos:molinete-detail' molinete.id %}">{{ molinete.id }}</a></td>
+        <td>{{ molinete.identity }}</td>
+        <td>{{ molinete.event }}</td>
+        <td>{{ molinete.credentialsRead }}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% else %}
+<br>
+<p><strong>No Molinetes are registered for this event.</strong></p>
+{% endif %}
+{% endblock %}

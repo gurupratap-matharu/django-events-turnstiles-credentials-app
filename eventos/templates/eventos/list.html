@@ -1,0 +1,28 @@
+{% extends "eventos/base.html" %}
+
+{% block content %}
+
+{% if events %}
+<div style="overflow-x:auto;">
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Code</th>
+        <th>Credentials Read</th>
+    </tr>
+    {% for event in events %}
+    <tr>
+        <td><a href="{% url 'eventos:detail' event.id %}" >{{ event.id }}</a></td>
+        <td>{{ event.title }}</td>
+        <td>{{ event.code }}</td>
+        <td>{{ event.credentialsRead }}</td>
+    </tr>
+
+    {% endfor %}
+</table>
+</div>
+{% else %}
+<p>No events are registered yet.</p>
+{% endif %}
+{% endblock %}
